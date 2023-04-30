@@ -1,10 +1,10 @@
 <script setup>
 
-const props = defineProps(['text', 'color']);
+const props = defineProps(['text', 'color', 'isChanged']);
 const emits = defineEmits(['action']);
 
 const buttonHandler = () => {
-  emits('action');
+  emits('action', !props.isChanged);
 };
 
 </script>
@@ -13,6 +13,7 @@ const buttonHandler = () => {
   <button class="button" :class="{
     'light': props.color == 'primary',
     'dark': props.color == 'secondary',
+    'bigger': props.color == 'tertiary'
   }" @click="buttonHandler">{{ props.text }}</button>
 </template>
 
@@ -41,6 +42,10 @@ const buttonHandler = () => {
   &.dark {
     color: white;
     background-color: darkslateblue;
+  }
+
+  &.bigger {
+    font-size: 28px;
   }
 
 }
