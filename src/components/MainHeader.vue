@@ -3,7 +3,7 @@ import ButtonComp from '@/components/ButtonComp.vue';
 
 const props = defineProps(['title', 'subtitle']);
 
-const actionHandler = () => console.log('MainHeader Button Handler 🐠');
+const actionHandler = (changed) => console.log('MainHeader Button Handler 🐠', changed);
 
 </script>
 
@@ -14,7 +14,7 @@ const actionHandler = () => console.log('MainHeader Button Handler 🐠');
 
     <slot name="additional"></slot>
 
-    <ButtonComp text="Click Me" color="primary" @action="actionHandler"></ButtonComp>
+    <ButtonComp text="Click Me" color="primary" :isChanged="false" @action="actionHandler"></ButtonComp>
   </header>
 </template>
 

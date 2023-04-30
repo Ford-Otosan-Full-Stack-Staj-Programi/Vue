@@ -1,13 +1,23 @@
 <script setup>
+import { ref } from "vue"
+
 import MainHeader from '@/components/MainHeader.vue';
 import ButtonComp from '@/components/ButtonComp.vue';
+import Listing from '@/components/Listing/Listing.vue'
+import DataFetch from '@/components/DataFetch.vue'
 
 const title = 'Ford Otosan';
 const subtitle = 'Full Stack Gelecek Tasarimcilari';
 
-console.log('App.vue Console log 👻');
-
 const buttonHandler = () => console.log('App.vue Button Handler Action 🦄');
+
+const emoji = ref('🍕🍕🍕🍕🍕🍕');
+const changeEmoji = () => {
+  emoji.value = '🍔🍔🍔🍔🍔';
+  console.log('Changed Emoji', emoji);
+}
+
+console.log('App.vue Console log 👻');
 </script>
 
 <template>
@@ -15,6 +25,8 @@ const buttonHandler = () => console.log('App.vue Button Handler Action 🦄');
 
     <h1>{{ title }} 🍕 (H1)</h1>
     <h2>{{ subtitle }} 🌭 (H2)</h2>
+
+    <ButtonComp :text="'Eat Me ' + emoji" color="tertiary" @action="changeEmoji"></ButtonComp>
 
     <MainHeader :title="title" :subtitle="subtitle">
       <template #additional>
@@ -29,10 +41,15 @@ const buttonHandler = () => console.log('App.vue Button Handler Action 🦄');
             obcaecati. Pariatur sequi doloribus quia sapiente, nostrum temporibus laudantium expedita quo quos iusto nisi
             accusantium sunt enim maxime, minus labore fugit tempore odit asperiores dolorum consequuntur voluptatum
             consequatur.</p>
+          <ButtonComp text="🏄🏼 Surf Button"></ButtonComp>
         </div>
       </template>
     </MainHeader>
     <ButtonComp text="Another Click Me Button" color="secondary" @action="buttonHandler"></ButtonComp>
+
+    <Listing></Listing>
+
+    <DataFetch></DataFetch>
 
   </main>
 </template>
