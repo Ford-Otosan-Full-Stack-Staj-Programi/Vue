@@ -4,7 +4,8 @@ import HomeView from "@/views/HomeView.vue"
 import ListingView from "@/views/ListingView.vue"
 import InboxView from "@/views/InboxView.vue"
 import InboxSubView from "@/views/InboxSubView.vue"
-import CommentsView from "@/views/Comments/CommentsListView.vue"
+import CommentsView from "@/views/Comments/CommentsView.vue"
+import CommentsListView from "@/views/Comments/CommentsListView.vue"
 import CommentsDeleteView from "@/views/Comments/CommentsDeleteView.vue"
 import CommentsAddView from "@/views/Comments/CommentsAddView.vue"
 
@@ -42,16 +43,23 @@ const router = createRouter({
       ]
     },
     {
-      path: '/comments',
-      component: CommentsView
-    },
-    {
-      path: '/comments-delete',
-      component: CommentsDeleteView
-    },
-    {
-      path: '/comments-add',
-      component: CommentsAddView
+      path: '/comment',
+      component: CommentsView,
+      redirect: { path: '/comment/all' },
+      children: [
+        {
+          path: 'all',
+          component: CommentsListView
+        },
+        {
+          path: 'add',
+          component: CommentsAddView
+        },
+        {
+          path: 'delete',
+          component: CommentsDeleteView
+        }
+      ]
     }
   ]
 })

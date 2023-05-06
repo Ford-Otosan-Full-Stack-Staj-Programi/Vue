@@ -6,6 +6,7 @@ import { RouterLink } from "vue-router"
   <nav>
     <RouterLink to="/">Home Page</RouterLink>
     <RouterLink to="/listing">Listing Page</RouterLink>
+    <RouterLink to="/comment">Comments Page</RouterLink>
     <RouterLink to="/inbox">Inbox Page</RouterLink>
     <RouterLink to="/inbox/sub">Inbox > Sub Page</RouterLink>
   </nav>
@@ -30,25 +31,25 @@ nav {
     font-size: 24px;
 
     background-color: pink;
-    color: white;
+    color: #202020;
     text-decoration: none;
 
     border-radius: 8px;
 
     &:visited {
-      color: white;
+      color: #202020;
       text-decoration: none;
     }
 
     &:hover {
-      color: invert($color: white);
+      color: invert($color: #fff);
       background-color: invert($color: purple);
       text-decoration: underline;
     }
 
     &.router-link-exact-active {
-      color: plum;
-      background-color: purple;
+      color: #fff;
+      background-color: cornflowerblue;
     }
   }
 }
