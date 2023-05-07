@@ -4,7 +4,6 @@ import { ref } from "vue"
 import MainHeader from '@/components/MainHeader.vue';
 import ButtonComp from '@/components/ButtonComp.vue';
 
-
 const title = 'Ford Otosan';
 const subtitle = 'Full Stack Gelecek Tasarimcilari';
 
@@ -17,6 +16,7 @@ const changeEmoji = () => {
 }
 
 console.log('App.vue Console log 👻');
+
 </script>
 
 <template>
@@ -25,7 +25,8 @@ console.log('App.vue Console log 👻');
     <h1>{{ title }} 🍕 (H1)</h1>
     <h2>{{ subtitle }} 🌭 (H2)</h2>
 
-    <ButtonComp :text="'Eat Me ' + emoji" color="tertiary" @action="changeEmoji"></ButtonComp>
+    <ButtonComp :text="'Eat Me ' + emoji" color="tertiary" @action="changeEmoji">
+    </ButtonComp>
 
     <MainHeader :title="title" :subtitle="subtitle">
       <template #additional>
@@ -45,8 +46,6 @@ console.log('App.vue Console log 👻');
       </template>
     </MainHeader>
     <ButtonComp text="Another Click Me Button" color="secondary" @action="buttonHandler"></ButtonComp>
-
-
   </main>
 </template>
 

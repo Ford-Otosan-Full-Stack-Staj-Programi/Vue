@@ -9,6 +9,9 @@ import CommentsListView from "@/views/Comments/CommentsListView.vue"
 import CommentsDeleteView from "@/views/Comments/CommentsDeleteView.vue"
 import CommentsAddView from "@/views/Comments/CommentsAddView.vue"
 
+import LifeCycleView from '@/views/LifeCycleView.vue'
+import ComputedView from '@/views/ComputedView.vue'
+
 import PersonView from "@/views/PersonView.vue"
 
 const router = createRouter({
@@ -16,6 +19,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Home',
       component: HomeView
     },
     {
@@ -25,6 +29,9 @@ const router = createRouter({
     {
       path: '/inbox',
       component: InboxView,
+      meta: {
+        isSecret: true
+      },
       children: [
         {
           path: 'sub',
@@ -60,8 +67,23 @@ const router = createRouter({
           component: CommentsDeleteView
         }
       ]
+    },
+    {
+      path: '/life',
+      component: LifeCycleView
+    },
+    {
+      path: '/computed',
+      component: ComputedView
     }
   ]
+})
+
+router.beforeEach((to, from) => {
+  // console.log('Router beforeEach Check 🦖', to, from)
+  if (to.meta.isSecret) {
+    console.log("That's secret path 👮🏼‍♀️")
+  }
 })
 
 export default router

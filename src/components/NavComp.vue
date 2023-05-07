@@ -4,11 +4,13 @@ import { RouterLink } from "vue-router"
 
 <template>
   <nav>
-    <RouterLink to="/">Home Page</RouterLink>
+    <RouterLink :to="{ name: 'Home', query: { click: 'Nav Component' } }">Home Page</RouterLink>
     <RouterLink to="/listing">Listing Page</RouterLink>
     <RouterLink to="/comment">Comments Page</RouterLink>
     <RouterLink to="/inbox">Inbox Page</RouterLink>
     <RouterLink to="/inbox/sub">Inbox > Sub Page</RouterLink>
+    <RouterLink to="/life">Component LifeCycles</RouterLink>
+    <RouterLink to="/computed">Computed</RouterLink>
   </nav>
 </template>
 
@@ -23,6 +25,8 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  flex-wrap: wrap;
 
   a {
     margin: 20px;

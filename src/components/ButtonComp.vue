@@ -10,7 +10,7 @@ const buttonHandler = () => {
 </script>
 
 <template>
-  <button class="button" :class="{
+  <button type="button" class="button" :class="{
     'light': props.color == 'primary',
     'dark': props.color == 'secondary',
     'bigger': props.color == 'tertiary'
